@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%= json.project.title %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Oswald|Open+Sans:600,400' rel='stylesheet' type='text/css'>
+    <!-- <link rel="stylesheet" href="http://stmediakit.wpengine.netdna-cdn.com/wp-content/themes/stmediakit-child/webfonts.css?ver=3.9.1" type="text/css"> -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <%= t.include("partials/_adHead.html") %>
+  </head>
+  <body>
+
+    <div class="fixed-frame"></div>
+
+    <main class="scroll">
+
+      <header class="intro">
+        <nav class="logo-bar">
+          <a class="logo" href="http://seattletimes.com">
+            <img src="./assets/st-logo.png">
+          </a>
+        </nav>
+
+        <div class="contents">
+
+          <h1>Headline Goes Here</h1>
+
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis velit ac dui lobortis dictum non mollis tortor. Phasellus fermentum, orci id iaculis pretium, elit quam rutrum ante, ac congue orci eros sed magna. Sed eu ipsum consectetur, maximus purus vel, elementum augue.
+
+            <a class="share"></a>
+          </p>
+
+          <p class="byline">
+            <span class="byline-name">Commentary by tktktk</span> &bull;
+            <span class="byline-name">Web development by Audrey Carlsen</span>
+          </p>
+
+          <p class="instructions">
+            <i class="fa fa-chevron-down"></i>
+            Scroll to continue
+            <i class="fa fa-chevron-down"></i>
+
+        </div>
+
+      </header>
+
+    <% json.MarinersLineup2015_Dummy.sort(function(a, b) { return a.order - b.order }).forEach(function(player, i) { %>
+      <section class="parallax-play" data-index="<%= i %>">
+        <img src="assets/<%= player.image %>" class="fixable">
+        <div class="description <%= player.overlay %>">
+          <h3 class="rank"><%= player.name %>, <%= player.position %> (<%= player.number %>)</h3>
+
+          <div class="copy">
+            <h2>Best</h2>
+            <p><%= player.best %>
+            
+            <h2>Worst</h2>
+            <p><%= player.worst %>
+
+            <h2>Prediction</h2>
+            <p><%= player.prediction %>
+
+          </div>
+          <div class="credit">
+            Photo by <%= player.credit %> / The Seattle Times
+          </div>
+        </div>
+      </section>
+    <% }) %>
+
+      <footer>
+        <a class="logo" href="http://seattletimes.com">
+          <img src="./assets/st-logo.png">
+        </a>
+        <a class="share-bottom"></a>
+      </footer>
+
+    </main>
+
+    <aside class="no-mobile-portrait">
+      <a class="ok" href="javascript:;">
+        <i class="fa fa-times-circle-o"></i>
+      </a>
+      Hey! This page is designed to look best in landscape mode. Rotate your device to see for yourself.
+      <i class="fa fa-rotate-left rotation"></i>
+    </aside>
+
+    <script src="app.js"></script>
+    <%= t.include("partials/_adFoot.html") %>
+    <%= t.include("partials/_workHere.html") %>
+  </body>
+</html>
