@@ -53,6 +53,15 @@
         <div class="description <%= player.overlay %>">
           <h3 class="rank"><%= player.name %>, <%= player.position %> (<%= player.number %>)</h3>
 
+          <div class="stats">
+            <img src="assets/<%= player.card %>" class="thumbnail">
+            <ul>
+              <li>Age: <%= player.age %>
+              <li>Height: <%= player.height %>
+              <li>Weight: <%= player.weight %> lbs
+              <li>Bats: <%= player.bats %>
+          </div>
+
           <div class="copy">
             <h2>Best</h2>
             <p><%= player.best %>
