@@ -1,3 +1,16 @@
+.transform(...) {
+  -webkit-transform: @arguments;
+  transform: @arguments;
+}
+.backface-visibility(...) {
+  -webkit-backface-visibility: @arguments;
+  backface-visibility: @arguments;
+}
+.transform-origin(...) {
+  -webkit-transform-origin: @arguments;
+  transform-origin: @arguments;
+}
+
 .parallax-play {
   overflow: hidden;
   position: relative;
@@ -97,12 +110,13 @@
   background: rgba(51, 51, 51, 0.95);
   box-shadow: 8px 8px 16px rgba(0,0,0,.3);
   transition: transform 1s ease-in-out;
-  backface-visibility: hidden;
-  transform-origin: 50% 50%;
-  transform: perspective(1000px) rotateY(0deg);
+  transition: -webkit-transform 1s ease-in-out;
+  .backface-visibility(hidden);
+  .transform-origin(50% 50%);
+  .transform(perspective(1000px) rotateY(0deg));
 
   .flip & {
-    transform: perspective(1000px) rotateY(180deg);
+    .transform(perspective(1000px) rotateY(180deg));
   }
 }
 
@@ -111,17 +125,18 @@
   box-shadow: 8px 8px 16px rgba(0,0,0,.3);
   position: absolute;
   top: 0;
-  backface-visibility: hidden;
-  transform-origin: 50% 50%;
-  transform: perspective(1000px) rotateY(-180deg);
+  .backface-visibility(hidden);
+  .transform-origin(50% 50%);
+  .transform(perspective(1000px) rotateY(-180deg));
   transition: transform 1s ease-in-out;
+  transition: -webkit-transform 1s ease-in-out;
+  cursor: pointer;
 
   .close {
     position: absolute;
     right: 4px;
     top: 4px;
     font-size: 25px;
-    cursor: pointer;
   }
 
   img { 
@@ -129,6 +144,6 @@
   }
 
   .flip & {
-    transform: perspective(1000px) rotateY(0deg);
+    .transform(perspective(1000px) rotateY(0deg));
   }
 }

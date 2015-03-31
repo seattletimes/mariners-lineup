@@ -73,7 +73,7 @@ qsa(".description").forEach(function(box) {
   box.addEventListener("click", function(e) {
     if (e.target.classList.contains("thumbnail")) {
       box.classList.add("flip");
-    } else if (e.target.classList.contains("close")) {
+    } else if (e.target.classList.contains("back-card") || e.target.classList.contains("close")) {
       box.classList.remove("flip");
     }
   })
