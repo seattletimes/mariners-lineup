@@ -25,7 +25,7 @@
 
         <div class="contents">
 
-          <h1>Headline Goes Here</h1>
+          <h1>Headline goes here</h1>
 
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis velit ac dui lobortis dictum non mollis tortor. Phasellus fermentum, orci id iaculis pretium, elit quam rutrum ante, ac congue orci eros sed magna. Sed eu ipsum consectetur, maximus purus vel, elementum augue.
@@ -51,30 +51,38 @@
       <section class="parallax-play" data-index="<%= i %>">
         <img src="assets/<%= player.image %>" class="fixable">
         <div class="description <%= player.overlay %>">
-          <h3 class="rank"><%= player.name %>, <%= player.position %> (<%= player.number %>)</h3>
+          
+          <div class="front">
+            <h3 class="rank"><%= player.name %>, <%= player.position %> (<%= player.number %>)</h3>
 
-          <div class="stats">
-            <img src="assets/<%= player.card %>" class="thumbnail">
-            <ul>
-              <li>Age: <%= player.age %>
-              <li>Height: <%= player.height %>
-              <li>Weight: <%= player.weight %> lbs
-              <li>Bats: <%= player.bats %>
+            <div class="stats">
+              <img src="assets/<%= player.card %>" class="thumbnail">
+              <ul>
+                <li>Age: <%= player.age %>
+                <li>Height: <%= player.height %>
+                <li>Weight: <%= player.weight %> lbs
+                <li>Bats: <%= player.bats %>
+            </div>
+
+            <div class="copy">
+              <h2>Best</h2>
+              <p><%= player.best %>
+              
+              <h2>Worst</h2>
+              <p><%= player.worst %>
+
+              <h2>Prediction</h2>
+              <p><%= player.prediction %>
+
+            </div>
+            <div class="credit">
+              Photo by <%= player.credit %> / The Seattle Times
+            </div>
           </div>
 
-          <div class="copy">
-            <h2>Best</h2>
-            <p><%= player.best %>
-            
-            <h2>Worst</h2>
-            <p><%= player.worst %>
-
-            <h2>Prediction</h2>
-            <p><%= player.prediction %>
-
-          </div>
-          <div class="credit">
-            Photo by <%= player.credit %> / The Seattle Times
+          <div class="back">
+            <i class="fa fa-times-circle close"></i>
+            <img src="assets/<%= player.card %>">
           </div>
         </div>
       </section>
