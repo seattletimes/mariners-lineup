@@ -10,6 +10,10 @@
   -webkit-transform-origin: @arguments;
   transform-origin: @arguments;
 }
+.transition-transform(...) {
+  transition: -webkit-transform @arguments;
+  transition: transform @arguments;
+}
 
 .parallax-play {
   overflow: hidden;
@@ -109,8 +113,7 @@
 .front {
   background: rgba(51, 51, 51, 0.95);
   box-shadow: 8px 8px 16px rgba(0,0,0,.3);
-  transition: transform 1s ease-in-out;
-  transition: -webkit-transform 1s ease-in-out;
+  .transition-transform(1s ease-in-out);
   .backface-visibility(hidden);
   .transform-origin(50% 50%);
   .transform(perspective(1000px) rotateY(0deg));
@@ -128,8 +131,7 @@
   .backface-visibility(hidden);
   .transform-origin(50% 50%);
   .transform(perspective(1000px) rotateY(-180deg));
-  transition: transform 1s ease-in-out;
-  transition: -webkit-transform 1s ease-in-out;
+  .transition-transform(1s ease-in-out);
   cursor: pointer;
 
   .close {
