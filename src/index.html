@@ -52,9 +52,9 @@
     <% json.MarinersLineup2015_Data.sort(function(a, b) { return a.order - b.order }).forEach(function(player, i) { %>
       <section id="player-<%=player.number%>" class="parallax-play" data-index="<%= i %>">
         <img src="assets/<%= player.image %>" class="fixable">
-        <div class="description <%= player.overlay %> flip">
+        <div class="description <%= player.overlay %>">
           
-          <div class="front">
+          <div class="front ">
             <h3 class="rank"> 
               <div class="number"><%= player.number %></div> <%= player.name %>, <span class="position"><%= player.position %></span><i class="fa fa-times-circle close"></i>
             </h3>
@@ -107,8 +107,7 @@
 
           <div class="back">
             <img src="assets/<%= player.card %>" class="activate-flip">
-            <div class="click-text activate-flip">Click to turn over</div>
-            <i class="fa fa-reply turnover activate-flip"></i>
+            <div class="click-text activate-flip"><i class="fa fa-reply"></i> Flip for player info</div>
           </div>
         </div>
       </section>

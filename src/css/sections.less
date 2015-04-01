@@ -144,10 +144,10 @@
   .transition-transform(.4s ease-in-out);
   .backface-visibility(hidden);
   .transform-origin(50% 50%);
-  .transform(perspective(1000px) rotateY(0deg));
+  .transform(perspective(1000px) rotateY(180deg));
 
-  .flip & {
-    .transform(perspective(1000px) rotateY(180deg));
+  .flip &, .description:hover & {
+    .transform(perspective(1000px) rotateY(0deg));
   }
 }
 
@@ -159,40 +159,31 @@
   top: 0;
   .backface-visibility(hidden);
   .transform-origin(50% 50%);
-  .transform(perspective(1000px) rotateY(-180deg));
+  .right & {
+    .transform(perspective(1000px) rotateY(-10deg));
+  }
+  .left & {
+    .transform(perspective(1000px) rotateY(10deg));
+  }
+
   .transition-transform(.4s ease-in-out);
 
   img { 
     width: 100%; 
   }
 
-  .turnover {
-    color: #EEE;
-    display: none;
-    position: absolute;
-    left: 147px;
-    top: 78px;
-    font-size: 66px;
-  }
-
   .click-text {
-    color: #EEE;
-    position: absolute;
-    left: 116px;
-    top: 3px;
+    text-align: center;
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: 13px;
     letter-spacing: .5px;
   }
 
-  .flip & {
-    .transform(perspective(1000px) rotateY(0deg));
+  .flip &, .description:hover & {
+    .transform(perspective(1000px) rotateY(-180deg));
   }
 
   &:hover {
-    .turnover {
-      display: block;
-    }
     img {
       opacity: 0.5;
     }
