@@ -71,11 +71,7 @@ window.addEventListener("scroll", debounce(function(e) {
 
 qsa(".description").forEach(function(box) {
   box.addEventListener("click", function(e) {
-    if ( e.target.classList.contains("close")) {
-      box.classList.add("flip");
-    } else if (e.target.classList.contains("activate-flip")) {
-      box.classList.remove("flip");
-    }
+    box.classList.toggle("flip");
   });
 });
 
