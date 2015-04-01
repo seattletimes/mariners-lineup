@@ -72,13 +72,20 @@ window.addEventListener("scroll", debounce(function(e) {
 try {
   document.createEvent("TouchEvent");
   document.body.classList.remove("mouse");
-} catch (e) { /* no touchscreen */ }
-
-qsa(".description").forEach(function(box) {
-  box.addEventListener("click", function(e) {
-    box.classList.toggle("flip");
+  qsa(".description").forEach(function(box) {
+    box.addEventListener("click", function(e) {
+      box.classList.toggle("flip");
+    });
   });
-});
+} catch (e) { 
+  /* no touchscreen */ 
+  qsa(".close").forEach(function(c) {
+    c.classList.remove("show");
+  });
+  qsa(".description").forEach(function(d) {
+    d.classList.remove("pointer");
+  });
+}
 
 document.querySelector("aside.no-mobile-portrait .ok").addEventListener("click", function() {
   document.body.className += " hide-warning";

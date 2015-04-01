@@ -31,7 +31,10 @@
     width: 360px;
     font-family: @body;
     color: white;
-    cursor: pointer;
+
+    &.pointer {
+      cursor: pointer;
+    }
 
     @media @mobile {
       margin: 40px 20px 0;
@@ -62,11 +65,16 @@
       }
 
       .close {
+        display: none;
         position: absolute;
         right: 10px;
         top: 10px;
         font-size: 25px;
         color: #CCC;
+
+        &.show {
+          display: inline-block;
+        }
 
         &:hover {
           color: #AAA;
@@ -181,11 +189,5 @@
 
   .flip &, .mouse .description:hover & {
     .transform(perspective(1000px) rotateY(-180deg));
-  }
-
-  &:hover {
-    img {
-      opacity: 0.5;
-    }
   }
 }

@@ -50,13 +50,13 @@
       </header>
 
     <% json.MarinersLineup2015_Data.sort(function(a, b) { return a.order - b.order }).forEach(function(player, i) { %>
-      <section id="player-<%=player.number%>" class="parallax-play" data-index="<%= i %>">
+      <section class="parallax-play" data-index="<%= i %>">
         <img src="assets/<%= player.image %>" class="fixable">
-        <div class="description <%= player.overlay %>">
+        <div class="description pointer <%= player.overlay %>">
           
           <div class="front ">
             <h3 class="rank"> 
-              <div class="number"><%= player.number %></div> <%= player.name %>, <span class="position"><%= player.position %></span><i class="fa fa-times-circle close"></i>
+              <div class="number"><%= player.number %></div> <%= player.name %>, <span class="position"><%= player.position %></span><i class="fa fa-times-circle close show"></i>
             </h3>
 
             <div class="stats">
