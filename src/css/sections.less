@@ -43,38 +43,78 @@
       padding: 5px 20px;
       font-family: @hed;
       font-weight: normal;
+
+      .position {
+        display: inline-block;
+        width: 35px;
+        padding: 3px;
+        text-align: center;
+        border-radius: 50%;
+        background: #888;
+        margin-right: 7px;
+      }
     }
 
-    h1 {
-      font-size: 20px;
-      font-weight: 600;
-      margin: 0 0 1em;
+    table {
       padding: 0 20px;
-      color: white;
-      font-family: @body;
-      font-size: 16px;
+      font-size: 12px;
+      border-collapse: collapse;
+      text-align: right;
+      display: inline-block;
+
+      th, td {
+        padding: 3px 5px;
+        border-bottom: 1px solid #AAA;
+      }
     }
 
     .stats {
-      padding: 0 20px;
+      padding: 0 20px 5px 20px;
 
       img.thumbnail {
         width: 80px;
         display: inline-block;
         cursor: pointer;
+      }
+
+      .card-frame {
+        display: inline-block;
 
         &:hover {
-          opacity: 0.5;
+          img.thumbnail {
+            opacity: 0.5;
+          }
+
+          .turnover {
+            display: block;
+          }
         }
+      }
+
+      .turnover {
+        display: none;
+        position: absolute;
+        left: 42px;
+        top: 94px;
+        font-size: 38px;
+        cursor: pointer;
       }
 
       ul {
         list-style: none;
         display: inline-block;
         padding-left: 10px;
-        font-size: 12px;
+        font-size: 13px;
+        line-height: 22px;
         margin: 0;
         vertical-align: top;
+
+        .click {
+          font-size: 10px;
+          color: #BBB;
+          text-transform: uppercase;
+          letter-spacing: .5px;
+        }
       }
     }
 
@@ -113,13 +153,13 @@
 .front {
   background: rgba(51, 51, 51, 0.95);
   box-shadow: 8px 8px 16px rgba(0,0,0,.3);
-  .transition-transform(1s ease-in-out);
+  .transition-transform(.4s ease-in-out);
   .backface-visibility(hidden);
   .transform-origin(50% 50%);
   .transform(perspective(1000px) rotateY(0deg));
 
   .flip & {
-    .transform(perspective(1000px) rotateY(180deg));
+    .transform(perspective(1000px) rotateY(-180deg));
   }
 }
 
@@ -130,8 +170,8 @@
   top: 0;
   .backface-visibility(hidden);
   .transform-origin(50% 50%);
-  .transform(perspective(1000px) rotateY(-180deg));
-  .transition-transform(1s ease-in-out);
+  .transform(perspective(1000px) rotateY(180deg));
+  .transition-transform(.4s ease-in-out);
   cursor: pointer;
 
   .close {

@@ -34,7 +34,7 @@
           </p>
 
           <p class="byline">
-            <span class="byline-name">Commentary by tktktk</span> &bull;
+            <span class="byline-name">Commentary by Scott Hanson</span> &bull;
             <span class="byline-name">Web development by Audrey Carlsen</span>
           </p>
 
@@ -47,36 +47,61 @@
 
       </header>
 
-    <% json.MarinersLineup2015_Dummy.sort(function(a, b) { return a.order - b.order }).forEach(function(player, i) { %>
-      <section class="parallax-play" data-index="<%= i %>">
+    <% json.MarinersLineup2015_Data.sort(function(a, b) { return a.order - b.order }).forEach(function(player, i) { %>
+      <section id="player-<%=player.number%>" class="parallax-play" data-index="<%= i %>">
         <img src="assets/<%= player.image %>" class="fixable">
         <div class="description <%= player.overlay %>">
           
           <div class="front">
-            <h3 class="rank"><%= player.name %>, <%= player.position %> (<%= player.number %>)</h3>
+            <h3 class="rank"> <div class="position"><%= player.position %></div> <%= player.name %> | #<%= player.number %></h3>
 
             <div class="stats">
-              <img src="assets/<%= player.card %>" class="thumbnail">
+              <div class="card-frame">
+                <img src="assets/<%= player.card %>" class="thumbnail activate-flip">
+                <i class="fa fa-reply turnover activate-flip"></i>
+              </div>
+
               <ul>
-                <li>Age: <%= player.age %>
-                <li>Height: <%= player.height %>
-                <li>Weight: <%= player.weight %> lbs
-                <li>Bats: <%= player.bats %>
+                <li><strong>Age:</strong> <%= player.age %>
+                <li><strong>Height:</strong> <%= player.height %>
+                <li><strong>Weight:</strong> <%= player.weight %> lbs
+                <li><strong><%= player.arm %>:</strong> <%= player.bats %>
+                <li class="click"><i class="fa fa-long-arrow-left"></i> Click to enlarge
             </div>
 
             <div class="copy">
-              <h2>Best</h2>
+              <h2>Best Case</h2>
               <p><%= player.best %>
               
-              <h2>Worst</h2>
+              <h2>Worst Case</h2>
               <p><%= player.worst %>
 
-              <h2>Prediction</h2>
+              <h2>What's Likely</h2>
               <p><%= player.prediction %>
 
             </div>
+
+            <table>
+              <% var headers = player.position == "RHP" ? ["","W-L","ERA","GS","IP","CG","BB","Ks"] : ["","Avg","R","H","HR","RBI","SB","OBP","SLG"];
+                headers.forEach(function(header) { %>
+                <th><%= header %></th>
+              <% }); %>
+              <tr>
+                <td>2014</td>
+                <% player.season.split(",").forEach(function(stat) { %>
+                  <td><%= stat %></td>
+                <% }); %>
+              </tr>
+              <tr>
+                <td>Career</td>
+                <% player.career.split(",").forEach(function(stat) { %>
+                  <td><%= stat %></td>
+                <% }); %>
+              </tr>
+            </table>
+
             <div class="credit">
-              Photo by <%= player.credit %> / The Seattle Times
+              Photo by <%= player.credit %> / <%= player.publication %>
             </div>
           </div>
 
