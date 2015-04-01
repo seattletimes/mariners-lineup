@@ -146,7 +146,7 @@
   .transform-origin(50% 50%);
   .transform(perspective(1000px) rotateY(180deg));
 
-  .flip &, .description:hover & {
+  .flip &, .mouse .description:hover & {
     .transform(perspective(1000px) rotateY(0deg));
   }
 }
@@ -179,7 +179,7 @@
     letter-spacing: .5px;
   }
 
-  .flip &, .description:hover & {
+  .flip &, .mouse .description:hover & {
     .transform(perspective(1000px) rotateY(-180deg));
   }
 

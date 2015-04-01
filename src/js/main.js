@@ -69,6 +69,11 @@ window.addEventListener("scroll", debounce(function(e) {
   dots.querySelector(".dot:nth-child(" + lastVisible + ")").className += " active";
 }));
 
+try {
+  document.createEvent("TouchEvent");
+  document.body.classList.remove("mouse");
+} catch (e) { /* no touchscreen */ }
+
 qsa(".description").forEach(function(box) {
   box.addEventListener("click", function(e) {
     box.classList.toggle("flip");
