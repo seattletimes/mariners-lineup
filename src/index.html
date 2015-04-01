@@ -53,7 +53,7 @@
         <div class="description <%= player.overlay %>">
           
           <div class="front">
-            <h3 class="rank"> <div class="position"><%= player.position %></div> <%= player.name %> | #<%= player.number %></h3>
+            <h3 class="rank"> <div class="position"><%= player.number %></div> <%= player.name %> | <%= player.position %></h3>
 
             <div class="stats">
               <div class="card-frame">
@@ -64,9 +64,9 @@
               <ul>
                 <li><strong>Age:</strong> <%= player.age %>
                 <li><strong>Height:</strong> <%= player.height %>
-                <li><strong>Weight:</strong> <%= player.weight %> lbs
+                <li><strong>Weight:</strong> <%= player.weight %>
                 <li><strong><%= player.arm %>:</strong> <%= player.bats %>
-                <li class="click"><i class="fa fa-long-arrow-left"></i> Click to enlarge
+                <li class="click"><span class="click-text"><i class="fa fa-long-arrow-left"></i> Click to enlarge</span>
             </div>
 
             <div class="copy">
