@@ -25,17 +25,19 @@
 
         <div class="contents">
 
-          <h1>Headline goes here</h1>
+          <h1>Meet the 2015 M's</h1>
 
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis velit ac dui lobortis dictum non mollis tortor. Phasellus fermentum, orci id iaculis pretium, elit quam rutrum ante, ac congue orci eros sed magna. Sed eu ipsum consectetur, maximus purus vel, elementum augue.
+            The Mariners are a popular pick to reach the playoffs for the first time since 2001, thanks to a strengthened offense and strong pitching. Can this team improve on last year's 87-win season? Here is the projected opening-day lineup.
 
             <a class="share"></a>
           </p>
 
           <p class="byline">
             <span class="byline-name">Commentary by Scott Hanson</span> &bull;
-            <span class="byline-name">Web development by Audrey Carlsen</span>
+            <span class="byline-name">Graphics by Rich Boudet</span> &bull;
+            <span class="byline-name">Development by Audrey Carlsen</span>
+            
           </p>
 
           <p class="instructions">
@@ -50,17 +52,15 @@
     <% json.MarinersLineup2015_Data.sort(function(a, b) { return a.order - b.order }).forEach(function(player, i) { %>
       <section id="player-<%=player.number%>" class="parallax-play" data-index="<%= i %>">
         <img src="assets/<%= player.image %>" class="fixable">
-        <div class="description <%= player.overlay %>">
+        <div class="description <%= player.overlay %> flip">
           
           <div class="front">
-            <h3 class="rank"> <div class="position"><%= player.number %></div> <%= player.name %> | <%= player.position %></h3>
+            <h3 class="rank"> 
+              <div class="number"><%= player.number %></div> <%= player.name %>, <span class="position"><%= player.position %></span><i class="fa fa-times-circle close"></i>
+            </h3>
 
             <div class="stats">
-              <div class="card-frame">
-                <img src="assets/<%= player.card %>" class="thumbnail activate-flip">
-                <i class="fa fa-reply turnover activate-flip"></i>
-                <span class="click-text activate-flip"><i class="fa fa-long-arrow-left"></i> Click to enlarge</span>
-              </div>
+              <img src="assets/<%= player.card %>" class="thumbnail">
 
               <ul>
                 <li><strong>Age:</strong> <%= player.age %>
@@ -82,7 +82,7 @@
             </div>
 
             <table>
-              <% var headers = player.position == "RHP" ? ["","W-L","ERA","GS","IP","CG","BB","Ks"] : ["","Avg","R","H","HR","RBI","SB","OBP","SLG"];
+              <% var headers = player.position == "P" ? ["","W-L","ERA","GS","IP","CG","BB","Ks"] : ["","Avg","R","H","HR","RBI","SB","OBP","SLG"];
                 headers.forEach(function(header) { %>
                 <th><%= header %></th>
               <% }); %>
@@ -106,8 +106,9 @@
           </div>
 
           <div class="back">
-            <i class="fa fa-times-circle close"></i>
-            <img src="assets/<%= player.card %>" class="back-card">
+            <img src="assets/<%= player.card %>" class="activate-flip">
+            <div class="click-text activate-flip">Click to turn over</div>
+            <i class="fa fa-reply turnover activate-flip"></i>
           </div>
         </div>
       </section>
