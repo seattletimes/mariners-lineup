@@ -5,14 +5,15 @@
       "path": "corrupt-physiology"
     },
     "live": {
-      "bucket": "",
-      "path": ""
+      "bucket": "projects.seattletimes.com",
+      "path": "2015/mariners-lineup"
     }
   },
-  "title": "",
-  "description": "",
-  "url": "",
-  "slug": "",
-  "tags": [],
+  "title": "Meet the 2015 M's",
+  "description": "Can the Mariners improve on last year's 87-win season? Here's the projected opening-day lineup.",
+  "url": "http://projects.seattletimes.com/2015/mariners-lineup",
+  "img": "assets/10Felix.JPG",
+  "slug": "mariners-lineup",
+  "tags": ["sports", "mariners", "baseball"],
   "production": false
 }
